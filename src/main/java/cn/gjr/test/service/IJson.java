@@ -1,4 +1,4 @@
-package cn.gjr.test.json;
+package cn.gjr.test.service;
 
 /**
  * @author gaojr
