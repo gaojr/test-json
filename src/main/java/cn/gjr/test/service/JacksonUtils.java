@@ -5,9 +5,11 @@ import com.alibaba.fastjson.JSONObject;
 import javax.annotation.Nonnull;
 
 /**
+ * FasterXML/jackson
+ *
  * @author gaojr
  */
-public class IJson {
+public class JacksonUtils {
 
     public <B> String bean2String(B b) {
         // todo

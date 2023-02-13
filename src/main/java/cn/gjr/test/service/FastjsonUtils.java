@@ -1,50 +1,49 @@
 package cn.gjr.test.service;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSONValidator;
+import com.alibaba.fastjson.TypeReference;
 
 import javax.annotation.Nonnull;
 
 /**
+ * alibaba/fastjson
+ *
  * @author gaojr
  */
-public class IJson {
+public class FastjsonUtils {
 
     public <B> String bean2String(B b) {
-        // todo
-        return null;
+        return JSON.toJSONString(b);
     }
 
-    public <B> B string2Bean(String s, B bean) {
-        // todo
-        return null;
+    public <B> B string2Bean(String s, TypeReference<B> reference) {
+        return JSON.parseObject(s, reference);
     }
 
     public static String pretty(String s) {
-        // todo
-        return null;
+        return JSON.toJSONString(s, true);
     }
 
     public static boolean isJson(String s) {
-        // todo
-        return false;
+        return JSONValidator.from(s).validate();
     }
 
     public static boolean has(@Nonnull JSONObject json, String key) {
-        // todo
-        return false;
+        return json.containsKey(key);
     }
 
     public static Object get(@Nonnull JSONObject json, String key) {
-        // todo
-        return null;
+        return json.get(key);
     }
 
     public static void remove(@Nonnull JSONObject json, String key) {
-        // todo
+        json.remove(key);
     }
 
     public static void add(@Nonnull JSONObject json, String key, Object value) {
-        // todo
+        json.put(key, value);
     }
 
 }
